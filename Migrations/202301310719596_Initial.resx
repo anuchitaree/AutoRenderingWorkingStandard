@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAO1Y227bOBB9X6D/IPA5NX1pgd1AbpE6ySLYOgmitH2mpbEjlCK1JJW1v60P+0n7Czu6X23LidMuFkUeHFGcM1fOHOqfb3/b79cBtx5BaV+KKRkNhsQC4UrPF6spiczy9a/k/btXv9gXXrC2Puf7JvE+lBR6Sh6MCU8p1e4DBEwPAt9VUsulGbgyoMyTdDwc/kZHIwoIQRDLsuy7SBg/gOQBH2dSuBCaiPG59IDrbB3fOAmqdc0C0CFzYUrOIiPvQHig0MQvUn3FH8cw4THlDVJxYp1xn6FpDvAlsZgQ0jCDhp9+0uAYJVEixAXG7zch4L4l4xoyh07L7X19G45j32gpmEO5kTYyOBBwNMmCRZviTwo5KYKJ4bzAsJtN7HUSUoym60rMBbGauk5nXMX7egV8kMGcWLs2nxT1g2UW/51Ys4ibSMFUQGQU4yfWbbTgvvsHbO7lVxBTEXFedQBdwHe1BVy6VTIEZTZ3sMzcuvKIRetytClYiFVkUo+vhJmMiXWNytmCQ1Efleg4Rir4HQQoZsC7ZcaAEjEGJBFuaW/owjpUuTYsSAwSseZs/RHEyjxMyRhP16W/Bi9fyAz4JHw8mihjVAQdBu5Wesu0/ksqb4fiyREU27Sssp211yiP59Zgq9p+1mKvWnRcxAJ1D2uzozJGwxeqSWVEFCx+wHE4B218kTXW7brfvn3pI4HTzzAfU5CfCydeSdLROhHYOLJDoTPNdR9TRAdMvb/jSCwtSOfioGj9dDdE4+R0QbVOcpfzhZvldKfpeM9pAN3CA+w5C0PEr/CCbMVyUlIwe+0cPhyDFIO6umNGFtYWmvCUsRU03qJqtPTSV9qcM8MWLE79zAta28qkbol2rqeRt2Z/KWOfC8T/Z0L9J3UTtwzpJXoZYOdIHIbCvJIqtCQTmsY4Ux1NbCZ5FIhtjXCXdDoiq/LpSn+Ect5VUcrVNpJNG0FoRp+2wt9o7M109kp264QdO+nN83l48vcivEwR1GZTFab24pCSKMdNvSjK9f5otQlShau9+M5l1mq3zS2F9qLtNtqrnbW6/XexVu9LtxALA/Xoe3Hfuw5X+k9ersyZ8JcYnpRTkdF4MBo17mv/nbsT1drj/S5Q350Y+sK8IdZe7ncgKapeTB6Zch+YalGxZ147umAn+2CffKn4n+Slg6R3xTFh6c+m4EdKfAfB7kSOGfYR6XObkPWiyLsYctrWpiRMboToTGpqSa4Po9B9GPQWlW0y/kSq3e7xNq1+lbMxe/6qhIi/0Qlw42SWoPmeK7GUefLR66pF+ZZGbczBMA/zc6aMv2SuwdcuaJ3cvj4zHuGWCyxJ70rcRCaMzJnWECx47TJr0936k/tE3Wb7Joyf9DFcQDN9dAFuxIfI515h92VHAW+BiEs1axJoFd4+EW61KZCupegJlIXvHMKYCQpzD0HIEUzfCIc9wlNsw0nwEVbM3eSTezvI/kTUw26f+2ylWKAzjFI+/tJM40/N7/4FwM5VgJwWAAA=</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>public</value>
+  </data>
 </root>

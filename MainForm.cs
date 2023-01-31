@@ -1,4 +1,6 @@
-﻿using AutoRenderingWorkingStandard.Models;
+﻿using AutoRenderingWorkingStandard.ChildControl;
+using AutoRenderingWorkingStandard.Models;
+using AutoRenderingWorkingStandard.Modules;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -10,123 +12,117 @@ namespace AutoRenderingWorkingStandard
     {
         public MainForm()
         {
+            //this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+
+        private void setupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"--kiosk D:\WSStore\z353.pdf";
-            ProcessStartInfo startInfo = new ProcessStartInfo(path);
-            startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-            Process.Start("firefox.exe", path);
+           
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process[] processes = Process.GetProcesses();
-
-            foreach (Process proc in processes)
-            {
-                if (proc.ProcessName == "firefox")
-                {
-                    proc.Kill();
-                    //proc.CloseMainWindow();
-                }
-            }
+            Application.Exit();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void operationManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
+            this.pnlForm.Controls.Clear();
 
-
-                using (var db = new WSContext())
-                {
-                    var test = new WorkingStandard()
-                    {
-                        Partnumber = "TG123456789",
-                        Destination = "abc",
-                    };
-                    db.WorkingStandards.Add(test);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            var ctrl = new OperationManualControl();
+            this.pnlForm.Controls.Add(ctrl);
         }
 
-        private void BtnBrowse(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            this.pnlForm.Controls.Clear();
 
-            openFileDialog1.RestoreDirectory = true;
-
-            openFileDialog1.Title = "Browse PDF File";
-
-            openFileDialog1.DefaultExt = "pdf";
-
-            openFileDialog1.ReadOnlyChecked = true;
-
-            openFileDialog1.ShowReadOnly = true;
-
-
-            openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
-
-            //openFileDialog1.ShowDialog();
-
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Text = openFileDialog1.FileName;
-            }
+            var ctrl = new AboutControl();
+            this.pnlForm.Controls.Add(ctrl);
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string path = @"C:\Stock\SourceFiles";
+            this.pnlForm.Controls.Clear();
 
-                FileInfo fi = new FileInfo(textBox1.Text);
-
-                var uuid = Guid.NewGuid().ToString();
-
-                string destination = $"{path}//{uuid}.pdf";
-
-                fi.CopyTo(destination, true);
-
-                
-                using (var db = new WSContext())
-                {
-
-
-
-
-                    var record = new WorkingStandard()
-                    {
-                        Partnumber = ScanText.Text,
-                        Destination = destination,
-                    };
-                    db.WorkingStandards.Add(record);
-                    db.SaveChanges();
-                }
-
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            var ctrl = new RunControl();
+            this.pnlForm.Controls.Add(ctrl);
         }
 
+        private void workingStandardRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.pnlForm.Controls.Clear();
 
+            var ctrl = new SetupControl();
+            this.pnlForm.Controls.Add(ctrl);
+        }
 
+        private void cOMPortSettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.pnlForm.Controls.Clear();
 
+            var ctrl = new ComPortControl();
+            this.pnlForm.Controls.Add(ctrl);
+        }
 
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.pnlForm.Controls.Clear();
+
+            var ctrl = new BackGroundControl();
+            this.pnlForm.Controls.Add(ctrl);
+        }
+
+        private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.pnlForm.Controls.Clear();
+
+            var ctrl = new LicenseControl();
+            this.pnlForm.Controls.Add(ctrl);
+        }
+
+        private void patternTraningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.pnlForm.Controls.Clear();
+
+            var ctrl = new PatternTrainingControl();
+            this.pnlForm.Controls.Add(ctrl);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            InitialSetup();
+        }
+        private void InitialSetup()
+        {
+            //Keepfile.SerialSetting();
+            //PortSettingDefault();
+            //string file1 = string.Format("{0}\\PortSetting1.txt", Parameter.PortSetting);
+            //string file2 = string.Format("{0}\\PortSetting2.txt", Parameter.PortSetting);
+            //string file3 = string.Format("{0}\\PortSetting3.txt", Parameter.PortSetting);
+            //string file4 = string.Format("{0}\\PortSetting4.txt", Parameter.PortSetting);
+            //LoadSettingAndOpenSerialPort(1, file1, serialPort1);
+            //LoadSettingAndOpenSerialPort(2, file2, serialPort2);
+            //LoadSettingAndOpenSerialPort(3, file3, serialPort3);
+            //LoadSettingAndOpenSerialPort(4, file4, serialPort4);
+
+            Loadpattern();
+        }
+
+        private void Loadpattern()
+        {
+            string path = string.Format("{0}\\pattern.txt", Param.PortSetting);
+            string data = File.ReadAllText(path);
+            string[] parts = data.Split(',');
+            if (parts.Length > 3)
+            {
+                Param.Patterns.TotalLength = int.Parse(parts[0]);
+                Param.Patterns.Start = Convert.ToInt32(parts[1]);
+                Param.Patterns.Length = Convert.ToInt32(parts[2]);
+            }
+        }
     }
 }

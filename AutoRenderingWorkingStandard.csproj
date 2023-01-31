@@ -48,6 +48,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=4.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>packages\Npgsql.4.1.3\lib\net461\Npgsql.dll</HintPath>
     </Reference>
@@ -55,9 +58,13 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -81,6 +88,21 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,34 +117,120 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildControl\AboutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\AboutControl.Designer.cs">
+      <DependentUpon>AboutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\BackGroundControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\BackGroundControl.Designer.cs">
+      <DependentUpon>BackGroundControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\ComPortControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\ComPortControl.Designer.cs">
+      <DependentUpon>ComPortControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\LicenseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\LicenseControl.Designer.cs">
+      <DependentUpon>LicenseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\OperationManualControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\OperationManualControl.Designer.cs">
+      <DependentUpon>OperationManualControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\PatternTrainingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\PatternTrainingControl.Designer.cs">
+      <DependentUpon>PatternTrainingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\RunControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\RunControl.Designer.cs">
+      <DependentUpon>RunControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildControl\SetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChildControl\SetupControl.Designer.cs">
+      <DependentUpon>SetupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\TestScannerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\TestScannerForm.Designer.cs">
+      <DependentUpon>TestScannerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202301300842228_Initial.cs" />
-    <Compile Include="Migrations\202301300842228_Initial.designer.cs">
-      <DependentUpon>202301300842228_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301300856227_Initial1.cs" />
-    <Compile Include="Migrations\202301300856227_Initial1.designer.cs">
-      <DependentUpon>202301300856227_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\202301310719596_Initial.cs" />
+    <Compile Include="Migrations\202301310719596_Initial.designer.cs">
+      <DependentUpon>202301310719596_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Pattern.cs" />
     <Compile Include="Models\WorkingStandard.cs" />
     <Compile Include="Models\WSContext.cs" />
+    <Compile Include="Modules\Initial\DataGridViewInit.cs" />
+    <Compile Include="Modules\Param.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChildControl\AboutControl.resx">
+      <DependentUpon>AboutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\BackGroundControl.resx">
+      <DependentUpon>BackGroundControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\ComPortControl.resx">
+      <DependentUpon>ComPortControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\LicenseControl.resx">
+      <DependentUpon>LicenseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\OperationManualControl.resx">
+      <DependentUpon>OperationManualControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\PatternTrainingControl.resx">
+      <DependentUpon>PatternTrainingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\RunControl.resx">
+      <DependentUpon>RunControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildControl\SetupControl.resx">
+      <DependentUpon>SetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\TestScannerForm.resx">
+      <DependentUpon>TestScannerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301300842228_Initial.resx">
-      <DependentUpon>202301300842228_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301300856227_Initial1.resx">
-      <DependentUpon>202301300856227_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202301310719596_Initial.resx">
+      <DependentUpon>202301310719596_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,6 +257,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="www\Comport\" />
+    <Folder Include="www\Sourcefiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
