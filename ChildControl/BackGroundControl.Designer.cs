@@ -28,29 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PicBox = new System.Windows.Forms.PictureBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.PicBox);
+            this.panel1.Controls.Add(this.PictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(593, 424);
             this.panel1.TabIndex = 0;
             // 
-            // PicBox
+            // PictureBox1
             // 
-            this.PicBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicBox.Location = new System.Drawing.Point(0, 0);
-            this.PicBox.Name = "PicBox";
-            this.PicBox.Size = new System.Drawing.Size(593, 424);
-            this.PicBox.TabIndex = 0;
-            this.PicBox.TabStop = false;
+            this.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(593, 424);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox1.TabIndex = 0;
+            this.PictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // BackGroundControl
             // 
@@ -61,7 +69,7 @@
             this.Size = new System.Drawing.Size(593, 424);
             this.Load += new System.EventHandler(this.BackGroundControl_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +77,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox PicBox;
+        private System.Windows.Forms.PictureBox PictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

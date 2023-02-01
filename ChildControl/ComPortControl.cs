@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoRenderingWorkingStandard.Modules;
+using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -16,21 +17,13 @@ namespace AutoRenderingWorkingStandard.ChildControl
 
 
             string path0 = Environment.CurrentDirectory;
-            string path1 = $"{path0}\\www";
+            string path1 = $"{path0}\\{Param.Setting}";
             if (!Directory.Exists(path1))
             {
                 Directory.CreateDirectory(path1);
             }
-            string path2 = $"{path0}\\www\\Port";
-            if (!Directory.Exists(path2))
-            {
-                Directory.CreateDirectory(path2);
-            }
-            string path3 = $"{path0}\\www\\bin";
-            if (!Directory.Exists(path3))
-            {
-                Directory.CreateDirectory(path3);
-            }
+           
+           
             COMPort();
 
             LoadSettingfile();
@@ -55,7 +48,7 @@ namespace AutoRenderingWorkingStandard.ChildControl
         }
         private void LoadSettingfile()
         {
-            string path = $"{Environment.CurrentDirectory}\\www\\Port\\Setting.txt";
+            string path = $"{Environment.CurrentDirectory}\\{Param.Setting}\\port.txt";
 
             if (File.Exists(path))
             {
@@ -87,7 +80,7 @@ namespace AutoRenderingWorkingStandard.ChildControl
                 string setting = string.Format("{0},{1},{2},{3},{4}", CmbCom.SelectedItem, CmbBaudRate.SelectedItem, CmbParity.SelectedItem,
                    CmbDatalength.SelectedItem, CmbStopBit.SelectedItem);
 
-                string path = $"{Environment.CurrentDirectory}\\www\\Port\\Setting.txt";
+                string path = $"{Environment.CurrentDirectory}\\{Param.Setting}\\port.txt";
 
                 File.WriteAllText(path, setting);
                 MessageBox.Show("Save Communication port setting Completed","Info" , MessageBoxButtons.OK,MessageBoxIcon.Information);

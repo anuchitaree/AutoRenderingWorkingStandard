@@ -187,17 +187,23 @@
     <Compile Include="Migrations\202301310719596_Initial.designer.cs">
       <DependentUpon>202301310719596_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302010129236_Initial1.cs" />
+    <Compile Include="Migrations\202302010129236_Initial1.designer.cs">
+      <DependentUpon>202302010129236_Initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Pattern.cs" />
     <Compile Include="Models\WorkingStandard.cs" />
     <Compile Include="Models\WSContext.cs" />
     <Compile Include="Modules\Initial\DataGridViewInit.cs" />
+    <Compile Include="Modules\Initial\Serial_Port.cs" />
     <Compile Include="Modules\Param.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChildControl\AboutControl.resx">
       <DependentUpon>AboutControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildControl\BackGroundControl.resx">
       <DependentUpon>BackGroundControl.cs</DependentUpon>
@@ -216,6 +222,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChildControl\RunControl.resx">
       <DependentUpon>RunControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildControl\SetupControl.resx">
       <DependentUpon>SetupControl.cs</DependentUpon>
@@ -231,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301310719596_Initial.resx">
       <DependentUpon>202301310719596_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302010129236_Initial1.resx">
+      <DependentUpon>202302010129236_Initial1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

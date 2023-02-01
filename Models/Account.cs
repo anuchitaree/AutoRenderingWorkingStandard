@@ -15,9 +15,9 @@ namespace AutoRenderingWorkingStandard.Models
         public int Id { get; set; }
 
         [Required,StringLength(20)]
-        public string User { get; set; }
+        public string UserID { get; set; }
 
-        [Required, StringLength(30)]
-        public string Password { get; set; }
+        [Required, StringLength(80)]
+        public string HashPassword { get; set; }
     }
 }

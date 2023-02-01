@@ -17,18 +17,12 @@ namespace AutoRenderingWorkingStandard.ChildControl
             string path0 = Environment.CurrentDirectory;
 
 
-            string path1 = $"{path0}\\www";
+            string path1 = $"{path0}\\{Param.Setting}";
             if (!Directory.Exists(path1))
             {
                 Directory.CreateDirectory(path1);
             }
 
-
-            string path2 = $"{path0}\\www\\pattern";
-            if (!Directory.Exists(path2))
-            {
-                Directory.CreateDirectory(path2);
-            }
         }
 
         private void BtnTest_Click(object sender, EventArgs e)
@@ -72,19 +66,15 @@ namespace AutoRenderingWorkingStandard.ChildControl
 
                 string path0 = Environment.CurrentDirectory;
 
-                string path1 = $"{path0}\\www";
+                string path1 = $"{path0}\\{Param.Setting}";
                 if (!Directory.Exists(path1))
                 {
                     Directory.CreateDirectory(path1);
                 }
 
-                string path2 = $"{path0}\\www\\pattern";
-                if (!Directory.Exists(path2))
-                {
-                    Directory.CreateDirectory(path2);
-                }
+              
 
-                string path = string.Format($"{path2}\\pattern.txt");
+                string path = string.Format($"{path1}\\pattern.txt");
 
 
                 string data = string.Format("{0},{1},{2},{3},{4},{5}", TbSetTotal.Text, TbPNstart.Text, TbPNqty.Text,

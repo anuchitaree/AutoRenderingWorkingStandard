@@ -9,10 +9,8 @@ namespace AutoRenderingWorkingStandard.Modules
 {
     public static class Param
     {
-        public static string PortSetting = @"C:\Stock";
-        public static string Buffer = @"C:\Stock\bin";
-        public static string SectionCode = string.Empty;
-       
+        public static string Setting = "Setting";
+
         public static Pattern Patterns = new Pattern() { TotalLength = 28, Start = 10, Length = 9 };
 
       

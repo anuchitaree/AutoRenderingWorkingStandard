@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnInstuction = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -40,12 +41,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Help";
             // 
-            // HelpControl
+            // BtnInstuction
+            // 
+            this.BtnInstuction.Location = new System.Drawing.Point(21, 97);
+            this.BtnInstuction.Name = "BtnInstuction";
+            this.BtnInstuction.Size = new System.Drawing.Size(90, 31);
+            this.BtnInstuction.TabIndex = 1;
+            this.BtnInstuction.Text = "Instruction";
+            this.BtnInstuction.UseVisualStyleBackColor = true;
+            this.BtnInstuction.Click += new System.EventHandler(this.BtnInstuction_Click);
+            // 
+            // OperationManualControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnInstuction);
             this.Controls.Add(this.label1);
-            this.Name = "HelpControl";
+            this.Name = "OperationManualControl";
             this.Size = new System.Drawing.Size(372, 340);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -55,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BtnInstuction;
     }
 }
