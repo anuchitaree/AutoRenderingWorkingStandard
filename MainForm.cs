@@ -15,10 +15,10 @@ namespace AutoRenderingWorkingStandard
 {
     public partial class MainForm : Form
     {
-        //private static readonly SerialPort serialPort = new SerialPort();
-        //private static string ReadingText;
-        //private static int Counter;
-        
+        private static readonly SerialPort serialPort = new SerialPort();
+        private static string ReadingText;
+        private static int Counter;
+
         readonly CancellationTokenSource[] cts = new CancellationTokenSource[3];
 
         public MainForm()
@@ -83,6 +83,7 @@ namespace AutoRenderingWorkingStandard
             //frm.Show();
 
             InitialSetup();
+           
         }
         private void Login_LoginSuccess(object sender, EventArgs e)
         {
@@ -94,8 +95,9 @@ namespace AutoRenderingWorkingStandard
         }
         private void InitialSetup()
         {
-            Serial_Port.Init();
-           
+            //Serial_Port.Init();
+            //OpenPort();
+            //Loadpattern();
         }
 
         private void Loadpattern()
@@ -145,121 +147,119 @@ namespace AutoRenderingWorkingStandard
             this.pnlForm.Controls.Add(ctrl);
         }
 
-        //private void OpenPort()
-        //{
-        //    try
-        //    {
-        //        string directory = $"{Environment.CurrentDirectory}\\{Param.Setting}\\port.txt";
-        //        string setting = File.ReadAllText(directory);
+        private void OpenPort()
+        {
+            try
+            {
+                string directory = $"{Environment.CurrentDirectory}\\{Param.Setting}\\port.txt";
+                string setting = File.ReadAllText(directory);
 
-        //        string[] parts = setting.Split(',');
-        //        if (parts.Length == 5)
-        //        {
-        //            string comport = parts[0];
-        //            string BaudRate = parts[1];
-        //            string DataBits = parts[3];
-        //            string stopbit = parts[4];
-        //            string parity = parts[2];
+                string[] parts = setting.Split(',');
+                if (parts.Length == 5)
+                {
+                    string comport = parts[0];
+                    string BaudRate = parts[1];
+                    string DataBits = parts[3];
+                    string stopbit = parts[4];
+                    string parity = parts[2];
 
-        //            serialPort.PortName = comport;
-        //            serialPort.BaudRate = Convert.ToInt32(BaudRate);
-        //            serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), parity);
-        //            serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), stopbit);
-        //            serialPort.DataBits = Convert.ToInt16(DataBits);
+                    serialPort.PortName = comport;
+                    serialPort.BaudRate = Convert.ToInt32(BaudRate);
+                    serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), parity);
+                    serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), stopbit);
+                    serialPort.DataBits = Convert.ToInt16(DataBits);
 
-        //            serialPort.Handshake = Handshake.None;
-        //            int maxRetries = 3;
-        //            const int sleepTimeInMs = 500;
-        //            while (maxRetries > 0)
-        //            {
-        //                try
-        //                {
-        //                    serialPort.Open();
-        //                    if (serialPort.IsOpen)
-        //                    {
-        //                        serialPort.DiscardInBuffer();
-        //                        serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-        //                        timer1.Enabled = true;
-        //                        //LbSetting1.Text = string.Format("{0} : {1},{2},{3},{4},{5}", mode, comport, BaudRate, DataBits, stopbit, parity);
+                    serialPort.Handshake = Handshake.None;
+                    int maxRetries = 3;
+                    const int sleepTimeInMs = 500;
+                    while (maxRetries > 0)
+                    {
+                        try
+                        {
+                            serialPort.Open();
+                            if (serialPort.IsOpen)
+                            {
+                                serialPort.DiscardInBuffer();
+                                serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+                                timer1.Enabled = true;
+                                //LbSetting1.Text = string.Format("{0} : {1},{2},{3},{4},{5}", mode, comport, BaudRate, DataBits, stopbit, parity);
 
+                                break;
+                            }
+                        }
+                        //catch (UnauthorizedAccessException)
+                        //{
+                        //    maxRetries--;
+                        //    Thread.Sleep(sleepTimeInMs);
+                        //}
+                        catch (Exception exception)
+                        {
+                            maxRetries--;
+                            Console.WriteLine(exception.Message);
+                        }
+                    }
 
-        //                    }
-        //                }
-        //                catch (UnauthorizedAccessException)
-        //                {
-        //                    maxRetries--;
-        //                    Thread.Sleep(sleepTimeInMs);
-        //                }
-        //                catch (Exception exception)
-        //                {
-        //                    maxRetries--;
-        //                    Console.WriteLine(exception.Message);
-        //                }
-        //            }
+                    if (maxRetries != 3)
+                    {
+                        Console.WriteLine("maxRetries:{0}", maxRetries);
+                    }
+                }
+            }
+            catch (Exception)
+            {
 
-        //            if (maxRetries != 3)
-        //            {
-        //                Console.WriteLine("maxRetries:{0}", maxRetries);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
+            }
 
-        //    }
+        }
 
-        //}
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            ReadingText = sp.ReadExisting().Trim('\r');
+            Counter++;
+            serialPort.DiscardInBuffer();
+            Console.WriteLine("Data Received Port 1:{0} : {1}", Counter, ReadingText);
+        }
 
-        //private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    SerialPort sp = (SerialPort)sender;
-        //    ReadingText = sp.ReadExisting().Trim('\r');
-        //    Counter++;
-        //    serialPort.DiscardInBuffer();
-        //    Console.WriteLine("Data Received Port 1:{0} : {1}", Counter, ReadingText);
-        //}
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
+            if (ReadingText.Length == Param.Patterns.TotalLength)
+            {
+                ReadingText = ReadingText.Substring(Param.Patterns.Start, Param.Patterns.Length);
+                AsyncInsertTable(ReadingText);
+            }
+            //Message1.Text = String.Format("Count: {0} ,PartNUmber: {1}", Counter1, ReadingText1);
+            ReadingText = null;
 
-        //    if ( ReadingText.Length == Param.Patterns.TotalLength)
-        //    {
-        //        ReadingText = ReadingText.Substring(Param.Patterns.Start, Param.Patterns.Length);
-        //        AsyncInsertTable(ReadingText);
-        //    }
-        //    //Message1.Text = String.Format("Count: {0} ,PartNUmber: {1}", Counter1, ReadingText1);
-        //    ReadingText = null;
+        }
 
-        //}
+        private async void AsyncInsertTable(string partnumber)
+        {
+            CultureInfo ci = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+            try
+            {
+                using (var db = new WSContext())
+                {
+                    var existData = await db.WorkingStandards
+                        .Where(x => x.Partnumber == partnumber).FirstOrDefaultAsync();
 
-        //private async void AsyncInsertTable(string partnumber)
-        //{
-        //    CultureInfo ci = new CultureInfo("en-US");
-        //    Thread.CurrentThread.CurrentCulture = ci;
-        //    Thread.CurrentThread.CurrentUICulture = ci;
-        //    try
-        //    {
-        //        using (var db = new WSContext())
-        //        {
-        //            var existData = await db.WorkingStandards
-        //                .Where(x=>x.Partnumber==partnumber).FirstOrDefaultAsync();
+                    if (existData != null)
+                    {
+                        string path = existData.Destination;
 
-        //            if (existData != null)
-        //            {
-        //                string path = existData.Destination;
+                       
+                    }
+                }
+            }
+            catch
+            {
 
-        //                file = Image.FromFile(f.FileName);
-        //                pictureBox1.Image = file;
-        //                PictureBox1.
-        //            }
-        //        }
-        //    }
-        //    catch 
-        //    {
-
-        //    }
+            }
 
 
-        //}
+        }
     }
 }

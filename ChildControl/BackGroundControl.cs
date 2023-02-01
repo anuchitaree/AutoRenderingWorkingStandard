@@ -25,6 +25,60 @@ namespace AutoRenderingWorkingStandard.ChildControl
             InitializeComponent();
 
         }
+        protected override void OnCreateControl()
+
+        {
+
+            base.OnCreateControl();
+
+            this.ParentForm.FormClosing += new FormClosingEventHandler(ParentForm_FormClosing);
+
+        }
+
+        void ParentForm_FormClosing(object sender, FormClosingEventArgs e)
+
+        {
+
+            if (MessageBox.Show("Would you like to close the parent form?", "Close parent form?",
+
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+
+            {
+
+                e.Cancel = true;
+
+            }
+
+        }
+
+        //protected override void OnHandleDestroyed(EventArgs e)
+
+        //{
+
+        //    base.OnHandleDestroyed(e);
+
+        //}
+
+        //protected override void OnParentChanged(EventArgs e)
+        //{
+        //    base.OnParentChanged(e);
+
+        //    if (BackGroundControl != null)
+        //    {
+        //        BackGroundControl.Closing -= parentForm_Closing;
+        //    }
+        //    parentForm = FindForm();
+
+        //    if (parentForm != null)
+        //        parentForm.Closing += parentForm_Closing;
+        //}
+
+        //void parentForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+        //    parentForm.Closing -= parentForm_Closing;
+        //    parentForm = null;
+        //    //closing code
+        //}
 
         private void BackGroundControl_Load(object sender, EventArgs e)
         {
@@ -110,12 +164,18 @@ namespace AutoRenderingWorkingStandard.ChildControl
                                 break;
                             }
                         }
-                        catch (InvalidOperationException)
-                        {
-                        }
-                        catch (IOException)
-                        {
-                        }
+                        //catch (Exception exception)
+                        //{
+                        //    maxRetries--;
+                        //    Console.WriteLine(exception.Message);
+                        //}
+
+                        //catch (InvalidOperationException)
+                        //{
+                        //}
+                        //catch (IOException)
+                        //{
+                        //}
                         catch (UnauthorizedAccessException)
                         {
                             maxRetries--;
@@ -152,11 +212,12 @@ namespace AutoRenderingWorkingStandard.ChildControl
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             if (ReadingText != null && ReadingText.Length == Param.Patterns.TotalLength)
             {
                 ReadingText = ReadingText.Substring(Param.Patterns.Start, Param.Patterns.Length);
-                AsyncInsertTable(ReadingText);
+                AsyncInsertTable(ReadingText); //aaaaaaaaaa
+                //AsyncInsertTable("aaaaaaaaaa");
+
             }
             //Message1.Text = String.Format("Count: {0} ,PartNUmber: {1}", Counter1, ReadingText1);
             ReadingText = null;
