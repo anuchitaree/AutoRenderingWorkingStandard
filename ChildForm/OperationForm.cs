@@ -1,91 +1,57 @@
 ﻿using AutoRenderingWorkingStandard.Models;
 using AutoRenderingWorkingStandard.Modules;
+using AutoRenderingWorkingStandard.Modules.Initial;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoRenderingWorkingStandard.ChildControl
+namespace AutoRenderingWorkingStandard.ChildForm
 {
-    public partial class BackGroundControl : UserControl
+    public partial class OperationForm : Form
     {
-
         private static readonly SerialPort serialPort = new SerialPort();
         private static string ReadingText;
         private static int Counter;
 
-        public BackGroundControl()
+
+        public OperationForm()
         {
             InitializeComponent();
-
-        }
-        protected override void OnCreateControl()
-
-        {
-
-            base.OnCreateControl();
-
-            this.ParentForm.FormClosing += new FormClosingEventHandler(ParentForm_FormClosing);
-
         }
 
-        void ParentForm_FormClosing(object sender, FormClosingEventArgs e)
-
-        {
-
-            if (MessageBox.Show("Would you like to close the parent form?", "Close parent form?",
-
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-
-            {
-
-                e.Cancel = true;
-
-            }
-
-        }
-
-        //protected override void OnHandleDestroyed(EventArgs e)
-
-        //{
-
-        //    base.OnHandleDestroyed(e);
-
-        //}
-
-        //protected override void OnParentChanged(EventArgs e)
-        //{
-        //    base.OnParentChanged(e);
-
-        //    if (BackGroundControl != null)
-        //    {
-        //        BackGroundControl.Closing -= parentForm_Closing;
-        //    }
-        //    parentForm = FindForm();
-
-        //    if (parentForm != null)
-        //        parentForm.Closing += parentForm_Closing;
-        //}
-
-        //void parentForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-        //    parentForm.Closing -= parentForm_Closing;
-        //    parentForm = null;
-        //    //closing code
-        //}
-
-        private void BackGroundControl_Load(object sender, EventArgs e)
+        private void OperationForm_Load(object sender, EventArgs e)
         {
             Loadpattern();
 
             OpenPort();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (ReadingText != null && ReadingText.Length == Param.Patterns.TotalLength)
+            {
+                ReadingText = ReadingText.Substring(Param.Patterns.Start, Param.Patterns.Length);
+                AsyncInsertTable(ReadingText); //aaaaaaaaaa
+
+            }
+            ReadingText = null;
+        }
+        private void OperationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serial_Port.Close(serialPort);
+        }
+        //=========================================//
+        #region SubProgram
         private void Loadpattern()
         {
             string env = Environment.CurrentDirectory;
@@ -122,13 +88,6 @@ namespace AutoRenderingWorkingStandard.ChildControl
                     string stopbit = parts[4];
                     string parity = parts[2];
 
-                    //serialPort.PortName = comport;
-                    //serialPort.BaudRate = Convert.ToInt32(BaudRate);
-                    //serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), parity);
-                    //serialPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), stopbit);
-                    //serialPort.DataBits = Convert.ToInt16(DataBits);
-
-                    //serialPort.Handshake = Handshake.None;
                     int maxRetries = 3;
                     const int sleepTimeInMs = 500;
                     while (maxRetries > 0)
@@ -159,23 +118,11 @@ namespace AutoRenderingWorkingStandard.ChildControl
                                 serialPort.DiscardInBuffer();
                                 serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                                 timer1.Enabled = true;
-                                //LbSetting1.Text = string.Format("{0} : {1},{2},{3},{4},{5}", mode, comport, BaudRate, DataBits, stopbit, parity);
 
                                 break;
                             }
                         }
-                        //catch (Exception exception)
-                        //{
-                        //    maxRetries--;
-                        //    Console.WriteLine(exception.Message);
-                        //}
 
-                        //catch (InvalidOperationException)
-                        //{
-                        //}
-                        //catch (IOException)
-                        //{
-                        //}
                         catch (UnauthorizedAccessException)
                         {
                             maxRetries--;
@@ -210,25 +157,9 @@ namespace AutoRenderingWorkingStandard.ChildControl
             Console.WriteLine("Data Received Port 1:{0} : {1}", Counter, ReadingText);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (ReadingText != null && ReadingText.Length == Param.Patterns.TotalLength)
-            {
-                ReadingText = ReadingText.Substring(Param.Patterns.Start, Param.Patterns.Length);
-                AsyncInsertTable(ReadingText); //aaaaaaaaaa
-                //AsyncInsertTable("aaaaaaaaaa");
-
-            }
-            //Message1.Text = String.Format("Count: {0} ,PartNUmber: {1}", Counter1, ReadingText1);
-            ReadingText = null;
-
-        }
-
         private async void AsyncInsertTable(string partnumber)
         {
-            CultureInfo ci = new CultureInfo("en-US");
-            Thread.CurrentThread.CurrentCulture = ci;
-            Thread.CurrentThread.CurrentUICulture = ci;
+           
             try
             {
                 using (var db = new WSContext())
@@ -252,6 +183,8 @@ namespace AutoRenderingWorkingStandard.ChildControl
 
         }
 
+        #endregion
 
+       
     }
 }

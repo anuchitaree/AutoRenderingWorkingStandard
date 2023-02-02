@@ -37,11 +37,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnListWs = new System.Windows.Forms.Button();
-            this.DgvList = new System.Windows.Forms.DataGridView();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnCopyTo = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.DgvList = new System.Windows.Forms.DataGridView();
+            this.BtnListWs = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvList)).BeginInit();
@@ -136,24 +136,25 @@
             this.panel2.Size = new System.Drawing.Size(789, 355);
             this.panel2.TabIndex = 19;
             // 
-            // label3
+            // BtnCopyTo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Working standard registration history";
+            this.BtnCopyTo.Location = new System.Drawing.Point(563, 16);
+            this.BtnCopyTo.Name = "BtnCopyTo";
+            this.BtnCopyTo.Size = new System.Drawing.Size(76, 32);
+            this.BtnCopyTo.TabIndex = 4;
+            this.BtnCopyTo.Text = "Copy to..";
+            this.BtnCopyTo.UseVisualStyleBackColor = true;
+            this.BtnCopyTo.Click += new System.EventHandler(this.BtnCopyTo_Click);
             // 
-            // BtnListWs
+            // BtnDelete
             // 
-            this.BtnListWs.Location = new System.Drawing.Point(362, 16);
-            this.BtnListWs.Name = "BtnListWs";
-            this.BtnListWs.Size = new System.Drawing.Size(95, 33);
-            this.BtnListWs.TabIndex = 1;
-            this.BtnListWs.Text = "List up";
-            this.BtnListWs.UseVisualStyleBackColor = true;
-            this.BtnListWs.Click += new System.EventHandler(this.BtnListWs_Click);
+            this.BtnDelete.Location = new System.Drawing.Point(473, 16);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(84, 32);
+            this.BtnDelete.TabIndex = 3;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // DgvList
             // 
@@ -166,25 +167,24 @@
             this.DgvList.Size = new System.Drawing.Size(738, 253);
             this.DgvList.TabIndex = 2;
             // 
-            // BtnDelete
+            // BtnListWs
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(473, 16);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(84, 32);
-            this.BtnDelete.TabIndex = 3;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.BtnListWs.Location = new System.Drawing.Point(362, 16);
+            this.BtnListWs.Name = "BtnListWs";
+            this.BtnListWs.Size = new System.Drawing.Size(95, 33);
+            this.BtnListWs.TabIndex = 1;
+            this.BtnListWs.Text = "List up";
+            this.BtnListWs.UseVisualStyleBackColor = true;
+            this.BtnListWs.Click += new System.EventHandler(this.BtnListWs_Click);
             // 
-            // BtnCopyTo
+            // label3
             // 
-            this.BtnCopyTo.Location = new System.Drawing.Point(563, 16);
-            this.BtnCopyTo.Name = "BtnCopyTo";
-            this.BtnCopyTo.Size = new System.Drawing.Size(76, 32);
-            this.BtnCopyTo.TabIndex = 4;
-            this.BtnCopyTo.Text = "Copy to..";
-            this.BtnCopyTo.UseVisualStyleBackColor = true;
-            this.BtnCopyTo.Click += new System.EventHandler(this.BtnCopyTo_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(178, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Working standard registration history";
             // 
             // SetupControl
             // 

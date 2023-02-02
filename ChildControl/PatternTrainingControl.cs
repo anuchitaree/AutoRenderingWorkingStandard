@@ -97,5 +97,10 @@ namespace AutoRenderingWorkingStandard.ChildControl
                 MessageBox.Show("Save pattern is NOT completed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnGet_Click(object sender, EventArgs e)
+        {
+            TbScan.Text= Clipboard.GetText();
+        }
     }
 }

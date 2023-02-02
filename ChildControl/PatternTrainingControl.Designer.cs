@@ -51,6 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnSaveClose = new System.Windows.Forms.Button();
+            this.BtnGet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -249,10 +250,21 @@
             this.BtnSaveClose.UseVisualStyleBackColor = true;
             this.BtnSaveClose.Click += new System.EventHandler(this.BtnSaveClose_Click);
             // 
+            // BtnGet
+            // 
+            this.BtnGet.Location = new System.Drawing.Point(415, 115);
+            this.BtnGet.Name = "BtnGet";
+            this.BtnGet.Size = new System.Drawing.Size(75, 23);
+            this.BtnGet.TabIndex = 6;
+            this.BtnGet.Text = "From Com port setting";
+            this.BtnGet.UseVisualStyleBackColor = true;
+            this.BtnGet.Click += new System.EventHandler(this.BtnGet_Click);
+            // 
             // PatternTrainingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnGet);
             this.Controls.Add(this.BtnSaveClose);
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.TbPDqty);
@@ -309,5 +321,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnSaveClose;
+        private System.Windows.Forms.Button BtnGet;
     }
 }

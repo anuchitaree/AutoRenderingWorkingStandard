@@ -123,18 +123,6 @@
     <Compile Include="ChildControl\AboutControl.Designer.cs">
       <DependentUpon>AboutControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildControl\BackGroundControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ChildControl\BackGroundControl.Designer.cs">
-      <DependentUpon>BackGroundControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChildControl\ComPortControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ChildControl\ComPortControl.Designer.cs">
-      <DependentUpon>ComPortControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChildControl\LicenseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,11 +153,23 @@
     <Compile Include="ChildControl\SetupControl.Designer.cs">
       <DependentUpon>SetupControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForm\ComPortForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\ComPortForm.Designer.cs">
+      <DependentUpon>ComPortForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForm\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChildForm\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\OperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\OperationForm.Designer.cs">
+      <DependentUpon>OperationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ChildForm\TestScannerForm.cs">
       <SubType>Form</SubType>
@@ -205,12 +205,6 @@
       <DependentUpon>AboutControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildControl\BackGroundControl.resx">
-      <DependentUpon>BackGroundControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChildControl\ComPortControl.resx">
-      <DependentUpon>ComPortControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ChildControl\LicenseControl.resx">
       <DependentUpon>LicenseControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,8 +221,14 @@
     <EmbeddedResource Include="ChildControl\SetupControl.resx">
       <DependentUpon>SetupControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\ComPortForm.resx">
+      <DependentUpon>ComPortForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChildForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\OperationForm.resx">
+      <DependentUpon>OperationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForm\TestScannerForm.resx">
       <DependentUpon>TestScannerForm.cs</DependentUpon>

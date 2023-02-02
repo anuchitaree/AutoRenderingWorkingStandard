@@ -79,7 +79,7 @@ namespace AutoRenderingWorkingStandard.Modules.Initial
                     serialPort.DiscardOutBuffer();
                     serialPort.DiscardInBuffer();
                     serialPort.Close();
-                    serialPort = null;
+                    //serialPort = null;
                 }
             }
         }

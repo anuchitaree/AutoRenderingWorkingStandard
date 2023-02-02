@@ -1,13 +1,13 @@
-﻿namespace AutoRenderingWorkingStandard.ChildControl
+﻿namespace AutoRenderingWorkingStandard.ChildForm
 {
-    partial class ComPortControl
+    partial class ComPortForm
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,52 +20,55 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.CmbStopBit = new System.Windows.Forms.ComboBox();
             this.CmbDatalength = new System.Windows.Forms.ComboBox();
             this.CmbParity = new System.Windows.Forms.ComboBox();
             this.CmbBaudRate = new System.Windows.Forms.ComboBox();
             this.CmbCom = new System.Windows.Forms.ComboBox();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnReload = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TbTrial = new System.Windows.Forms.TextBox();
+            this.BtnCopy = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.CmbStopBit);
             this.panel1.Controls.Add(this.CmbDatalength);
             this.panel1.Controls.Add(this.CmbParity);
             this.panel1.Controls.Add(this.CmbBaudRate);
             this.panel1.Controls.Add(this.CmbCom);
-            this.panel1.Controls.Add(this.BtnCancel);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.BtnReload);
+            this.panel1.Controls.Add(this.BtnSave);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(45, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(223, 267);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // label6
             // 
@@ -75,15 +78,6 @@
             this.label6.Size = new System.Drawing.Size(161, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Communication port for Scanner ";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(20, 230);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 34);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Test";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // CmbStopBit
             // 
@@ -130,25 +124,25 @@
             this.CmbCom.Size = new System.Drawing.Size(121, 21);
             this.CmbCom.TabIndex = 7;
             // 
-            // BtnCancel
+            // BtnReload
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(85, 230);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(53, 34);
-            this.BtnCancel.TabIndex = 6;
-            this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.BtnReload.Location = new System.Drawing.Point(85, 230);
+            this.BtnReload.Name = "BtnReload";
+            this.BtnReload.Size = new System.Drawing.Size(53, 34);
+            this.BtnReload.TabIndex = 6;
+            this.BtnReload.Text = "Reload";
+            this.BtnReload.UseVisualStyleBackColor = true;
+            this.BtnReload.Click += new System.EventHandler(this.BtnReload_Click);
             // 
-            // button1
+            // BtnSave
             // 
-            this.button1.Location = new System.Drawing.Point(150, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 34);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnSave.Location = new System.Drawing.Point(150, 230);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(53, 34);
+            this.BtnSave.TabIndex = 5;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // label5
             // 
@@ -195,17 +189,54 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "COM Port";
             // 
-            // ComPortControl
+            // timer1
+            // 
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // TbTrial
+            // 
+            this.TbTrial.Location = new System.Drawing.Point(45, 328);
+            this.TbTrial.Name = "TbTrial";
+            this.TbTrial.Size = new System.Drawing.Size(728, 20);
+            this.TbTrial.TabIndex = 2;
+            // 
+            // BtnCopy
+            // 
+            this.BtnCopy.Location = new System.Drawing.Point(652, 363);
+            this.BtnCopy.Name = "BtnCopy";
+            this.BtnCopy.Size = new System.Drawing.Size(121, 21);
+            this.BtnCopy.TabIndex = 3;
+            this.BtnCopy.Text = "copy to clipboard";
+            this.BtnCopy.UseVisualStyleBackColor = true;
+            this.BtnCopy.Click += new System.EventHandler(this.BtnCopy_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(45, 312);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Reading message from scanner";
+            // 
+            // ComPortForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.BtnCopy);
+            this.Controls.Add(this.TbTrial);
             this.Controls.Add(this.panel1);
-            this.Name = "ComPortControl";
-            this.Size = new System.Drawing.Size(603, 584);
-            this.Load += new System.EventHandler(this.ComPortControl_Load);
+            this.Name = "ComPortForm";
+            this.Text = "ComPortForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ComPortForm_FormClosing);
+            this.Load += new System.EventHandler(this.ComPortForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -213,18 +244,21 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox CmbStopBit;
         private System.Windows.Forms.ComboBox CmbDatalength;
         private System.Windows.Forms.ComboBox CmbParity;
         private System.Windows.Forms.ComboBox CmbBaudRate;
         private System.Windows.Forms.ComboBox CmbCom;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnReload;
+        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox TbTrial;
+        private System.Windows.Forms.Button BtnCopy;
+        private System.Windows.Forms.Label label7;
     }
 }

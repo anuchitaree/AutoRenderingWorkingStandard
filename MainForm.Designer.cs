@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +45,6 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlForm = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,27 +103,27 @@
             // registrationToolStripMenuItem
             // 
             this.registrationToolStripMenuItem.Name = "registrationToolStripMenuItem";
-            this.registrationToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.registrationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.registrationToolStripMenuItem.Text = "Registration";
             this.registrationToolStripMenuItem.Click += new System.EventHandler(this.registrationToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
             // 
             // cOMPortToolStripMenuItem
             // 
             this.cOMPortToolStripMenuItem.Name = "cOMPortToolStripMenuItem";
-            this.cOMPortToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.cOMPortToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cOMPortToolStripMenuItem.Text = "COM Port";
             this.cOMPortToolStripMenuItem.Click += new System.EventHandler(this.cOMPortToolStripMenuItem_Click);
             // 
             // receivePatternToolStripMenuItem
             // 
             this.receivePatternToolStripMenuItem.Name = "receivePatternToolStripMenuItem";
-            this.receivePatternToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.receivePatternToolStripMenuItem.Text = "Receive pattern";
+            this.receivePatternToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.receivePatternToolStripMenuItem.Text = "Pattern receive";
             this.receivePatternToolStripMenuItem.Click += new System.EventHandler(this.receivePatternToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -215,7 +213,6 @@
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 
